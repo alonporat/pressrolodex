@@ -9,6 +9,8 @@
   <thead>
     <tr>
       <th>Reporter</th>
+      <th>Snitch</th>
+
       <th></th>
       <th></th>
       <th></th>
@@ -19,9 +21,13 @@
     <% @pins.each do |pin| %>
       <tr>
         <td><%= pin.Reporter %></td>
+        <td><%= pin.user.email if pin.user %></td>
         <td><%= link_to 'Show', pin %></td>
-        <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
-        <td><%= link_to 'Delete', pin, method: :delete, data: { confirm: 'Sure about that?' } %></td>
+        <% if pin.user == current_user %>
+          <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
+          <td><%= link_to 'Delete', pin, method: :delete, data: { confirm: 'Sure about that?' } %></td>
+        <% end %>
+
       </tr>
     <% end %>
   </tbody>
@@ -29,6 +35,8 @@
 
 <br>
 
-<div class="panel-footer">
-<%= link_to 'New Pin', new_pin_path %>
+<% if user_signed_in? %>
+  <div class="panel-footer">
+    <%= link_to 'New Pin', new_pin_path %>
   </div>
+<% end %>
