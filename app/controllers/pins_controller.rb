@@ -62,6 +62,6 @@ class PinsController < ApplicationController
     end
 
     def pin_params
-      params.require(:pin).permit(:Reporter)
+      params.require(:pin).permit(:Reporter, :RepEmail, :Publication, :Blog, :Linkedin, :Twitter, :Facebook)
     end
 end

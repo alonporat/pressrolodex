@@ -9,6 +9,13 @@
   <thead>
     <tr>
       <th>Reporter</th>
+      <th>Publication</th>
+      <th>Reporter Email</th>
+      <th>Blog</th>
+      <th>Linkedin</th>
+      <th>Twitter</th>
+      <th>Facebook</th>
+
       <th>Snitch</th>
 
       <th></th>
@@ -21,6 +28,13 @@
     <% @pins.each do |pin| %>
       <tr>
         <td><%= pin.Reporter %></td>
+        <td><%= pin.Publication %></td>
+        <td><%= pin.RepEmail %></td>
+        <td><%= pin.Blog %></td>
+        <td><%= pin.Linkedin %></td>
+        <td><%= pin.Twitter %></td>
+        <td><%= pin.Facebook %></td>
+
         <td><%= pin.user.email if pin.user %></td>
         <td><%= link_to 'Show', pin %></td>
         <% if pin.user == current_user %>
