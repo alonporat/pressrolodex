@@ -43,10 +43,13 @@
 
         <td><%= pin.user.Nickname if pin.user %></td>
         <td><%= link_to 'Show', pin %></td>
+        <% if user_signed_in? %>
         <% if pin.user == current_user %>
           <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
           <td><%= link_to 'Delete', pin, method: :delete, data: { confirm: 'Sure about that?' } %></td>
         <% end %>
+        <% end %>
+
 
       </tr>
     <% end %>
