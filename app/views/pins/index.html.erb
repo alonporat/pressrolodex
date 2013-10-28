@@ -41,7 +41,7 @@
         <td><%= pin.Twitter %></td>
         <td><%= pin.Facebook %></td>
 
-        <td><%= pin.user.email if pin.user %></td>
+        <td><%= pin.user.Nickname if pin.user %></td>
         <td><%= link_to 'Show', pin %></td>
         <% if pin.user == current_user %>
           <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
