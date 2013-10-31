@@ -2,7 +2,7 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
-   <h2>All reporters</h2>
+   <h2>List of reporters</h2>
   </div>
   <div class="panel-body">
 
@@ -10,23 +10,17 @@
     <%= link_to '+ New Pin', new_pin_path %>
 <% end %>
 
-<table>
-</br>
+<table style="width: 100%">
   <thead>
     <tr>
-      <th>Reporter</th>
-      <th>Publication</th>
-      <th>Reporter Email</th>
-      <th>Blog</th>
-      <th>Linkedin</th>
-      <th>Twitter</th>
-      <th>Facebook</th>
-
+      <th><%= link_to "Reporter", :sort => "Reporter" %></th>
+      <th><%= link_to "Publication", :sort => "Publication" %></th>
+      <th><%= link_to "Reporter Email", :sort => "RepEmail" %></th>
+      <th><%= link_to "Blog", :sort => "Blog" %></th>
+      <th><%= link_to "Linkedin", :sort => "Linkedin" %></th>
+      <th><%= link_to "Twitter", :sort => "Twitter" %></th>
+      <th><%= link_to "Facebook", :sort => "Facebook" %></th>
       <th>Snitch</th>
-
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 

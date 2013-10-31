@@ -4,7 +4,7 @@ class PinsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @pins = Pin.all
+    @pins = Pin.order(params[:sort])
   end
 
   def show
@@ -64,4 +64,5 @@ class PinsController < ApplicationController
     def pin_params
       params.require(:pin).permit(:Reporter, :RepEmail, :Publication, :Blog, :Linkedin, :Twitter, :Facebook)
     end
+
 end
