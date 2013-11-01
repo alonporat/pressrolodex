@@ -29,11 +29,46 @@
       <tr>
         <td><%= pin.Reporter %></td>
         <td><%= pin.Publication %></td>
-        <td><%= pin.RepEmail %></td>
-        <td><a target="_blank" href="http://<%= pin.Blog %>"><%= pin.Blog %></a></td>
-        <td><a target="_blank" href="http://<%= pin.Linkedin %>"><%= pin.Linkedin %></a></td>
-        <td><a target="_blank" href="http://<%= pin.Twitter %>"><%= pin.Twitter %></a></td>
-        <td><a target="_blank" href="http://<%= pin.Facebook %>"><%= pin.Facebook %></a></td>
+
+        <td>
+          <% if user_signed_in? %>
+            <%= pin.RepEmail %>
+          <% else %>
+            <%= link_to "Log in", new_user_session_path %>
+          <% end %>
+        </td>
+
+        <td>
+          <% if user_signed_in? %>
+            <a target="_blank" href="http://<%= pin.Blog %>"><%= pin.Blog %>
+          <% else %>
+            <%= link_to "Log in", new_user_session_path %>
+          <% end %>
+        </td>
+
+        <td>
+          <% if user_signed_in? %>
+            <a target="_blank" href="http://<%= pin.Linkedin %>"><%= pin.Linkedin %></a>
+          <% else %>
+            <%= link_to "Log in", new_user_session_path %>
+          <% end %>
+        </td>
+
+        <td>
+          <% if user_signed_in? %>
+            <a target="_blank" href="http://<%= pin.Twitter %>"><%= pin.Twitter %></a>
+          <% else %>
+            <%= link_to "Log in", new_user_session_path %>
+          <% end %>
+        </td>
+
+        <td>
+          <% if user_signed_in? %>
+            <a target="_blank" href="http://<%= pin.Facebook %>"><%= pin.Facebook %></a>
+          <% else %>
+            <%= link_to "Log in", new_user_session_path %>
+          <% end %>
+        </td>
 
         <td><%= pin.user.Nickname if pin.user %></td>
         <td><%= link_to 'Show', pin %></td>
