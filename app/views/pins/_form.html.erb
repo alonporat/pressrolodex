@@ -18,13 +18,13 @@
 
     </br> <div class="form group">
     <%= f.label :Publication %><br>
-    <%= f.text_field :Publication, class: "form-control" %>
+    <%= f.text_field :publication, class: "form-control" %>
   </div>
 
 
 
 <%= fields_for(@pin_interest) do |ai| %>
-  </br> <div class="field">
+  </br> <div class="form group">
     <%= ai.label "All Interests" %><br />
     <%= collection_select(:interests, :id, @all_interests, :id, :name, {}, {:multiple => true})%>
   </div>
@@ -33,27 +33,27 @@
 
   </br> <div class="form group">
     <%= f.label :Email %><br>
-    <%= f.email_field :RepEmail, class: "form-control" %>
+    <%= f.email_field :repemail, class: "form-control" %>
   </div>
 
   </br> <div class="form group">
     <%= f.label :'Link to Personal blog' %><br>
-    <%= f.text_field :Blog, class: "form-control" %>
+    <%= f.text_field :blog, class: "form-control" %>
   </div>
 
   </br> <div class="form group">
     <%= f.label :'Link to Linkedin account' %><br>
-    <%= f.text_field :Linkedin, class: "form-control" %>
+    <%= f.text_field :linkedin, class: "form-control" %>
   </div>
 
   </br> <div class="form group">
     <%= f.label :'Link to Twitter account' %><br>
-    <%= f.text_field :Twitter, class: "form-control" %>
+    <%= f.text_field :twitter, class: "form-control" %>
   </div>
 
   </br> <div class="form group">
     <%= f.label :'Link to Facebook account' %><br>
-    <%= f.text_field :Facebook, class: "form-control" %>
+    <%= f.text_field :facebook, class: "form-control" %>
   </div>
 
 

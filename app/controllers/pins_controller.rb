@@ -20,6 +20,16 @@ class PinsController < ApplicationController
   end
 
   def edit
+
+        @pin = current_user.pins.build(pin_params)
+
+    params[:interests][:id].each do |interest|
+      
+      if !interest.empty?
+        @pin.pininterests.build(:interest_id => interest)
+      end
+    end
+
   end
 
   def create
@@ -44,6 +54,17 @@ class PinsController < ApplicationController
   end
 
   def update
+
+    @pin = current_user.pins.build(pin_params)
+
+    params[:interests][:id].each do |interest|
+      
+      if !interest.empty?
+        @pin.pininterests.build(:interest_id => interest)
+      end
+    end
+
+
     respond_to do |format|
       if @pin.update(pin_params)
         format.html { redirect_to @pin, notice: 'Pin was successfully updated.' }
@@ -74,7 +95,8 @@ class PinsController < ApplicationController
     end
 
     def pin_params
-      params.require(:pin).permit(:name, :RepEmail, :Publication, :Blog, :Linkedin, :Twitter, :Facebook)
+      params.require(:pin).permit(:id, :name, :repemail, :publication, :blog, :linkedin, :twitter, :facebook)
+
     end
 
 end

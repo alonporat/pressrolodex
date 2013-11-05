@@ -1,5 +1,5 @@
 class Pin < ActiveRecord::Base
-	attr_accessible :name
+	attr_accessible :name, :repemail, :publication, :blog, :linkedin, :twitter, :facebook
 
 	belongs_to :user
 

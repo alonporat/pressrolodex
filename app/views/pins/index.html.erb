@@ -7,19 +7,19 @@
   <div class="panel-body">
 
 <% if user_signed_in? %>
-    <%= link_to '+ New Pin', new_pin_path %>
+    <%= link_to '+ Add Reporter', new_pin_path %>
 <% end %>
 
 <table style="width: 100%">
   <thead>
     <tr>
       <th><%= link_to "name", :sort => "name" %></th>
-      <th><%= link_to "Publication", :sort => "Publication" %></th>
-      <th><%= link_to "Reporter Email", :sort => "RepEmail" %></th>
-      <th><%= link_to "Blog", :sort => "Blog" %></th>
-      <th><%= link_to "Linkedin", :sort => "Linkedin" %></th>
-      <th><%= link_to "Twitter", :sort => "Twitter" %></th>
-      <th><%= link_to "Facebook", :sort => "Facebook" %></th>
+      <th><%= link_to "Publication", :sort => "publication" %></th>
+      <th><%= link_to "Reporter Email", :sort => "repemail" %></th>
+      <th><%= link_to "Blog", :sort => "blog" %></th>
+      <th><%= link_to "Linkedin", :sort => "linkedin" %></th>
+      <th><%= link_to "Twitter", :sort => "twitter" %></th>
+      <th><%= link_to "Facebook", :sort => "facebook" %></th>
       <th>Snitch</th>
     </tr>
   </thead>
@@ -28,11 +28,12 @@
     <% @pins.each do |pin| %>
       <tr>
         <td><%= pin.name %></td>
-        <td><%= pin.Publication %></td>
+        <td><%= pin.publication %></td>
+
 
         <td>
           <% if user_signed_in? %>
-            <%= pin.RepEmail %>
+            <%= pin.repemail %>
           <% else %>
             <%= link_to "Log in", new_user_session_path %>
           <% end %>
@@ -40,7 +41,7 @@
 
         <td>
           <% if user_signed_in? %>
-            <a target="_blank" href="http://<%= pin.Blog %>"><%= pin.Blog %>
+            <a target="_blank" href="http://<%= pin.blog %>"><%= pin.blog %>
           <% else %>
             <%= link_to "Log in", new_user_session_path %>
           <% end %>
@@ -48,7 +49,7 @@
 
         <td>
           <% if user_signed_in? %>
-            <a target="_blank" href="http://<%= pin.Linkedin %>"><%= pin.Linkedin %></a>
+            <a target="_blank" href="http://<%= pin.linkedin %>"><%= pin.linkedin %></a>
           <% else %>
             <%= link_to "Log in", new_user_session_path %>
           <% end %>
@@ -56,7 +57,7 @@
 
         <td>
           <% if user_signed_in? %>
-            <a target="_blank" href="http://<%= pin.Twitter %>"><%= pin.Twitter %></a>
+            <a target="_blank" href="http://<%= pin.twitter %>"><%= pin.twitter %></a>
           <% else %>
             <%= link_to "Log in", new_user_session_path %>
           <% end %>
@@ -64,7 +65,7 @@
 
         <td>
           <% if user_signed_in? %>
-            <a target="_blank" href="http://<%= pin.Facebook %>"><%= pin.Facebook %></a>
+            <a target="_blank" href="http://<%= pin.facebook %>"><%= pin.facebook %></a>
           <% else %>
             <%= link_to "Log in", new_user_session_path %>
           <% end %>

@@ -1,1 +1,1 @@
-json.extract! @pin, :name, :created_at, :updated_at
+json.extract! @pin, :name, :id, :repemail, :publication, :blog, :linkedin, :twitter, :facebook :created_at, :updated_at
