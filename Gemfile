@@ -11,6 +11,10 @@ gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass', branch: '3'
 gem 'devise', '~> 3.1.0.rc2'
 gem 'will_paginate'
+gem 'rails3-jquery-autocomplete'
+gem 'protected_attributes'
+gem 'sprockets', '~> 2.0'
+gem "hirb", "~> 0.7.1"
 
 group :assets do
   	gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'

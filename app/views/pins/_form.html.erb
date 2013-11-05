@@ -13,13 +13,23 @@
 
   <div class="form group">
     <%= f.label :'Reporter name' %><br>
-    <%= f.text_field :Reporter, class: "form-control" %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
 
     </br> <div class="form group">
     <%= f.label :Publication %><br>
     <%= f.text_field :Publication, class: "form-control" %>
   </div>
+
+
+
+<%= fields_for(@pin_interest) do |ai| %>
+  </br> <div class="field">
+    <%= ai.label "All Interests" %><br />
+    <%= collection_select(:interests, :id, @all_interests, :id, :name, {}, {:multiple => true})%>
+  </div>
+<% end %>
+
 
   </br> <div class="form group">
     <%= f.label :Email %><br>
@@ -45,6 +55,8 @@
     <%= f.label :'Link to Facebook account' %><br>
     <%= f.text_field :Facebook, class: "form-control" %>
   </div>
+
+
 
   <div class="form group">
   </br>

@@ -2,7 +2,7 @@ class PinsController < ApplicationController
   before_action :set_pin, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
-
+  
   def index
     @pins = Pin.order(params[:sort])
   end
@@ -12,6 +12,11 @@ class PinsController < ApplicationController
 
   def new
     @pin = current_user.pins.build
+
+    @all_interests = Interest.all 
+
+    @pin_interest = @pin.pininterests.build
+    
   end
 
   def edit
@@ -19,6 +24,13 @@ class PinsController < ApplicationController
 
   def create
     @pin = current_user.pins.build(pin_params)
+
+    params[:interests][:id].each do |interest|
+      
+      if !interest.empty?
+        @pin.pininterests.build(:interest_id => interest)
+      end
+    end
 
     respond_to do |format|
       if @pin.save
@@ -62,7 +74,7 @@ class PinsController < ApplicationController
     end
 
     def pin_params
-      params.require(:pin).permit(:Reporter, :RepEmail, :Publication, :Blog, :Linkedin, :Twitter, :Facebook)
+      params.require(:pin).permit(:name, :RepEmail, :Publication, :Blog, :Linkedin, :Twitter, :Facebook)
     end
 
 end
