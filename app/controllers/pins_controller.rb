@@ -20,27 +20,15 @@ class PinsController < ApplicationController
   end
 
   def edit
-
-        @pin = current_user.pins.build(pin_params)
-
-    params[:interests][:id].each do |interest|
-      
-      if !interest.empty?
-        @pin.pininterests.build(:interest_id => interest)
-      end
+    @pin = Pin.find(params[:id])
+    @all_interests = Interest.all 
+    if @pin.pininterests.blank?
+      #@pin.pininterests.build
     end
-
   end
 
   def create
     @pin = current_user.pins.build(pin_params)
-
-    params[:interests][:id].each do |interest|
-      
-      if !interest.empty?
-        @pin.pininterests.build(:interest_id => interest)
-      end
-    end
 
     respond_to do |format|
       if @pin.save
@@ -54,19 +42,10 @@ class PinsController < ApplicationController
   end
 
   def update
-
-    @pin = current_user.pins.build(pin_params)
-
-    params[:interests][:id].each do |interest|
-      
-      if !interest.empty?
-        @pin.pininterests.build(:interest_id => interest)
-      end
-    end
-
+    @pin = Pin.find(params[:id])
 
     respond_to do |format|
-      if @pin.update(pin_params)
+      if @pin.update_attributes(pin_params)
         format.html { redirect_to @pin, notice: 'Pin was successfully updated.' }
         format.json { head :no_content }
       else
@@ -95,8 +74,8 @@ class PinsController < ApplicationController
     end
 
     def pin_params
-      params.require(:pin).permit(:id, :name, :repemail, :publication, :blog, :linkedin, :twitter, :facebook)
-
+      params.require(:pin).permit(:id, :name, :repemail, :publication, :blog, :linkedin, :twitter, :facebook).merge(:params[:interests_params])
     end
 
 end
+

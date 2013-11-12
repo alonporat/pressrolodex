@@ -15,6 +15,7 @@ gem 'rails3-jquery-autocomplete'
 gem 'protected_attributes'
 gem 'sprockets', '~> 2.0'
 gem "hirb", "~> 0.7.1"
+gem 'pry'
 
 group :assets do
   	gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'

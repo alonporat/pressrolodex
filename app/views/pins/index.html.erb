@@ -21,6 +21,8 @@
       <th><%= link_to "Twitter", :sort => "twitter" %></th>
       <th><%= link_to "Facebook", :sort => "facebook" %></th>
       <th>Snitch</th>
+      <th><%= link_to "interests_params", :sort => "interests_params" %></th>
+
     </tr>
   </thead>
 
@@ -72,7 +74,11 @@
         </td>
 
         <td><%= pin.user.Nickname if pin.user %></td>
+
+        <td><%= pin.interests.name if pin.interests %> </td>
+
         <td><%= link_to 'Show', pin %></td>
+
         <% if user_signed_in? %>
         <% if pin.user == current_user %>
           <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
