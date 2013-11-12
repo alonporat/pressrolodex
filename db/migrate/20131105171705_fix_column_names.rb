@@ -1,6 +1,5 @@
 class FixColumnNames < ActiveRecord::Migration
   def change
-  	rename_column :pins, :Email, :email
   	rename_column :pins, :Publication, :publication
   	rename_column :pins, :RepEmail, :repemail
   	rename_column :pins, :Blog, :blog
