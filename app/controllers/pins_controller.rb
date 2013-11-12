@@ -74,7 +74,7 @@ class PinsController < ApplicationController
     end
 
     def pin_params
-      params.require(:pin).permit(:id, :name, :repemail, :publication, :blog, :linkedin, :twitter, :facebook).merge(:params[:interests_params])
+      params.require(:pin).permit(:id, :name, :repemail, :publication, :blog, :linkedin, :twitter, :facebook).merge(params[:interests_params])
     end
 
 end

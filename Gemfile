@@ -16,6 +16,8 @@ gem 'protected_attributes'
 gem 'sprockets', '~> 2.0'
 gem "hirb", "~> 0.7.1"
 gem 'pry'
+gem 'chosen-rails'
+gem 'compass-rails', github: 'Compass/compass-rails'
 
 group :assets do
   	gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'

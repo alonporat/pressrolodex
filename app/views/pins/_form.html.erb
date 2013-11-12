@@ -24,7 +24,7 @@
 <%= fields_for(:interests_params) do |ai| %>
   </br> <div class="form group">
     <%= ai.label "All Interests" %><br />
-    <%= ai.collection_select(:interest_id, @all_interests, :id, :name, {}, {:multiple => true})%>
+    <%= ai.select(:interest_id, options_for_select(@all_interests.collect {|p| [ p.name, p.id ] },f.object.interests.map(&:id)), {},{:multiple => true, :class => "chosen-select"})%>
   </div>
 <% end %>
 

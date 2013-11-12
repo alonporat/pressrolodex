@@ -36,6 +36,12 @@
   <%= @pin.facebook %>
 </p>
 
+<p>
+  <strong>Interests:</strong>
+<%= @pin.interests.map(&:name).join(", ") if @pin.interests %>
+</p>
+
+
 	</div>
 
 <div class="panel-footer">

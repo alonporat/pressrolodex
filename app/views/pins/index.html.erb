@@ -21,7 +21,7 @@
       <th><%= link_to "Twitter", :sort => "twitter" %></th>
       <th><%= link_to "Facebook", :sort => "facebook" %></th>
       <th>Snitch</th>
-      <th><%= link_to "interests_params", :sort => "interests_params" %></th>
+      <th>Reporter Interests</th>
 
     </tr>
   </thead>
@@ -75,7 +75,7 @@
 
         <td><%= pin.user.Nickname if pin.user %></td>
 
-        <td><%= pin.interests.name if pin.interests %> </td>
+        <td><%= pin.interests.map(&:name).join(", ") if pin.interests %> </td>
 
         <td><%= link_to 'Show', pin %></td>
 
