@@ -21,10 +21,11 @@
     <%= f.text_field :publication, class: "form-control" %>
   </div>
 
+
 <%= fields_for(:interests_params) do |ai| %>
   </br> <div class="form group">
-    <%= ai.label "All Interests" %><br />
-    <%= ai.select(:interest_id, options_for_select(@all_interests.collect {|p| [ p.name, p.id ] },f.object.interests.map(&:id)), {},{:multiple => true, :class => "chosen-select"})%>
+    <%= ai.label "Reporter Interests" %><br />
+    <%= ai.select(:interest_params, options_for_select(@all_interests.collect {|p| [ p.name, p.id ] },f.object.interests.map(&:id)), {},{:multiple => true, :class => "chosen-select"})%>
   </div>
 <% end %>
 
