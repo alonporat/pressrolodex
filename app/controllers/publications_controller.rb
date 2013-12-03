@@ -29,7 +29,7 @@ class PublicationsController < ApplicationController
     respond_to do |format|
       if @publication.save
         format.html { redirect_to @publication, notice: 'Publication was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @publication }
+        format.json { render json: {name: @publication.name, id: @publication.id} }
       else
         format.html { render action: 'new' }
         format.json { render json: @publication.errors, status: :unprocessable_entity }
@@ -43,7 +43,7 @@ class PublicationsController < ApplicationController
     respond_to do |format|
       if @publication.update(publication_params)
         format.html { redirect_to @publication, notice: 'Publication was successfully updated.' }
-        format.json { head :no_content }
+        format.json { render json: {name: @publication.name, id: @publication.id} }
       else
         format.html { render action: 'edit' }
         format.json { render json: @publication.errors, status: :unprocessable_entity }

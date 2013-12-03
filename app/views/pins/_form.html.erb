@@ -17,10 +17,13 @@
   </div>
 
 
-  <%= fields_for(:pin_publication) do |ap| %>
+<%= fields_for(:pin_publication) do |ap| %>
   </br> <div class="form group">
     <%= ap.label "All Publications" %><br />
-    <%= collection_select(:publications, :id, @all_publications, :id, :name, {}, {:multiple => true})%>
+    <%= select(:publications, :id, options_for_select(@all_publications.collect {|p| [ p.name, p.id ] },f.object.publications.map(&:id)), {}, {:multiple => true, :class => "chosen-select"})%>
+  </div>
+  <div class="custom_publication">
+    <input name="new_publication" type="text" />
   </div>
 <% end %>
 

@@ -31,16 +31,14 @@ class PinsController < ApplicationController
     if @pin.pininterests.blank?
       #@pin.pininterests.build
     end
+      @all_publications = Publication.all 
+    if @pin.pinpublications.blank?
+      #@pin.pinpublications.build
+      end
   end
 
   def create
     @pin = current_user.pins.build(pin_params)
-
-    params[:publications][:id].each do |publication|
-      if !publication.empty?
-        @pin.pinpublications.build(:publication_id => publication)
-      end
-    end
 
     respond_to do |format|
       if @pin.save
@@ -86,7 +84,10 @@ class PinsController < ApplicationController
     end
 
     def pin_params
-      params.require(:pin).permit(:id, :name, :repemail, :publication, :blog, :linkedin, :twitter, :facebook).merge(params[:interests_params])
+      params.require(:pin).permit(:id, :name, :repemail,
+        :publication, :blog, :linkedin,
+        :twitter, :facebook).
+      merge(params[:interests_params]).merge({publication_ids: params[:publications][:id]})
     end
 
 end
