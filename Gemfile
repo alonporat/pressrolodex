@@ -18,6 +18,7 @@ gem "hirb", "~> 0.7.1"
 gem 'pry'
 gem 'chosen-rails'
 gem 'compass-rails', github: 'Compass/compass-rails'
+gem 'bootstrap-typeahead-rails'
 
 group :assets do
   	gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
@@ -29,7 +30,7 @@ group :development, :test do
 end
 
 group :production do
-	gem 'pg'
+	gem 'sqlite3'
 	gem 'rails_12factor'
 end
 

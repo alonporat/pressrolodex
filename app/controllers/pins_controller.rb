@@ -16,6 +16,12 @@ class PinsController < ApplicationController
     @all_interests = Interest.all 
 
     @pin_interest = @pin.pininterests.build
+
+
+    @all_publications = Publication.all 
+
+    @pin_publication = @pin.pinpublications.build
+
     
   end
 
@@ -29,6 +35,12 @@ class PinsController < ApplicationController
 
   def create
     @pin = current_user.pins.build(pin_params)
+
+    params[:publications][:id].each do |publication|
+      if !publication.empty?
+        @pin.pinpublications.build(:publication_id => publication)
+      end
+    end
 
     respond_to do |format|
       if @pin.save

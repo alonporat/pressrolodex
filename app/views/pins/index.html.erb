@@ -30,7 +30,7 @@
     <% @pins.each do |pin| %>
       <tr>
         <td><%= pin.name %></td>
-        <td><%= pin.publication %></td>
+        <td><%= pin.publications.map(&:name).join(", ") if pin.publications %> </td>
 
 
         <td>

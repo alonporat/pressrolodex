@@ -8,6 +8,10 @@ class Pin < ActiveRecord::Base
   has_many  :pininterests
   has_many  :interests, :through => :pininterests
 
+  has_many  :pinpublications
+  has_many  :publications, :through => :pinpublications
+
+
   accepts_nested_attributes_for :pininterests, :allow_destroy => true
 
   def interest_params=(data)

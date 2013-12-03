@@ -16,10 +16,14 @@
     <%= f.text_field :name, class: "form-control" %>
   </div>
 
-    </br> <div class="form group">
-    <%= f.label :Publication %><br>
-    <%= f.text_field :publication, class: "form-control" %>
+
+  <%= fields_for(:pin_publication) do |ap| %>
+  </br> <div class="form group">
+    <%= ap.label "All Publications" %><br />
+    <%= collection_select(:publications, :id, @all_publications, :id, :name, {}, {:multiple => true})%>
   </div>
+<% end %>
+
 
 
 <%= fields_for(:interests_params) do |ai| %>
