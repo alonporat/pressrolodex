@@ -1,6 +1,8 @@
 class Pin < ActiveRecord::Base
   attr_accessible :name, :repemail, :publication, :blog, :linkedin, :twitter, :facebook, :interest_params, :publication_ids
 
+  validates_uniqueness_of :name
+
   belongs_to :user
 
   validates :name, :presence => true
