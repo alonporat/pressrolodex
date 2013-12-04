@@ -26,11 +26,11 @@ group :assets do
 end
 gem 'pg'
 group :development, :test do
-	gem 'sqlite3'
+	gem 'pg'
 end
 
 group :production do
-	gem 'sqlite3'
+	gem 'pg'
 	gem 'rails_12factor'
 end
 
