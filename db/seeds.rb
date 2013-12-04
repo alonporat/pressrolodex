@@ -6,6 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Publication.create(:name => "TechCrunch.com")
-Publication.create(:name => "HuffingtonPost.com")
-Publication.create(:name => "Mashable.com")
+Interest.create(:name => "Social Good")
+Interest.create(:name => "Mobile")
+Interest.create(:name => "Clean Tech")
+Interest.create(:name => "Big Data")
+Interest.create(:name => "Gadgets")
+
+
